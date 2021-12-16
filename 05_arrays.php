@@ -86,20 +86,35 @@ echo $person['name'].'<br>';
 $person['channel']='Netflix';
 
 // Null coalescing assignment operator. Since PHP 7.4
-if (isset($person['address'])){ //old way
-    $person['address']='unknown';
-}
+/*if (!isset($person['address'])){ 
+   $person['address']='unknown';
+}*/
 
-$person['address']?? = 'unknown1';
+$person ['address'] = $person['address']?? 'unknown';
+
+echo '<pre>';
+    var_dump($person);
+    print_r($person);
+    echo '</pre>'; 
 
 // Check if array has specific key
 isset($person['local']);//bool return
 
 // Print the keys of the array
+array_keys($person);
 
 // Print the values of the array
+echo '<pre>';
+    var_dump($person);
+    print_r($person);
+    echo '</pre>'; 
 
 // Sorting associative arrays by values, by keys
-
+ksort($person); //by key 
+asort($person);//by value
 
 // Two dimensional arrays
+$todos=[
+['title'=>'Todo title 1', 'completed'=>true],
+['title'=>'Todo title 2', 'completed'=>false]
+];
